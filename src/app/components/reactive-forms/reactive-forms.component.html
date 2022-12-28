@@ -1,0 +1,61 @@
+<div class="container">
+  <fieldset>
+    <legend>Portal</legend>
+    <div class="row">
+        <div class="col col-md-8">
+          <form [formGroup]="portalForm" (ngSubmit)="DisplayForm()">
+            <div class="mb-3 row">
+                <label for="firstName" class="col-sm-4 col-form-label">First Name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="firstName" formControlName ="firstName">
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="lastName" class="col-sm-4 col-form-label">Last Name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="lastName" formControlName="lastName">
+                </div>
+              </div>
+              <div class="mb-3" formGroupName="contacts">
+                <div class="row">
+                  <div class="col col-md-4 ">
+                    <div class="mb-3">
+                      <label for="dd" class="col-sm-2 col-form-label">Contact</label>
+                      <select class="form-select" aria-label="Default select example" formControlName="contactType">
+                        <option value="0" >Select</option>
+                        <option value="Email">Emil</option>
+                        <option value="Phone">Phone</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="row offset-md-2">
+                  <div class="col col-md-6">
+                    <label for="email" class="col-sm-4 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="email" formControlName ="email">
+                    </div>
+                  </div>
+                  <div class="col col-md-6">
+                    <label for="phoneNum" class="col-sm-4 col-form-label">Phone Number</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="phoneNum" formControlName="phoneNum">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row" *ngFor="let item of skills">
+                <div class="mb-3" formArrayName="skills">
+                  <label for="dd" class="col-sm-2 col-form-label">Skill</label>
+                  <input type="text" class="form-control" id="skill" >                  
+                </div>                
+              </div>
+              <ngb-alert [type]="t" >test</ngb-alert>
+              <button class="btn btn-primary" (click)="test()">add skills</button>
+              <button class="btn btn-primary" type="submit">Submit</button>
+          </form>
+        </div>
+        <div class="col col-md-2"></div>
+    </div>
+  </fieldset>
+</div>

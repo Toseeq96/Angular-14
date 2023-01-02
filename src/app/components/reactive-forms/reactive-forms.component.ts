@@ -42,7 +42,11 @@ portalForm = this.fb.group({
     console.log(this.portalForm.value);
   }
 
-  test(){
-this.skills.push('s');
-  }
+get skillsForm(){
+  return this.portalForm.get('skills');
+}
+
+//   test(){
+// this.skillsForm.push('s');
+//   }
 }

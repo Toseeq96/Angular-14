@@ -11,6 +11,11 @@ import { LoginComponent } from './components/login/login.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatBadgeModule} from '@angular/material/badge'
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {HttpClientModule} from '@angular/common/http';
+import { ImagesComponent } from './components/images/images.component'
+import { NgOptimizedImage } from '@angular/common';
+import { ToastrModule } from 'ngx-toastr';
+
 
 
 @NgModule({
@@ -18,6 +23,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     AppComponent,
     ReactiveFormsComponent,
     LoginComponent,
+    ImagesComponent
     
   ],
   imports: [
@@ -28,9 +34,19 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     NgbModule,
     MatSlideToggleModule,
     MatBadgeModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    HttpClientModule,
+    NgOptimizedImage,
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      //positionClass: 'toast-bottom-right',
+      closeButton: true,
+      tapToDismiss: true, 
+      preventDuplicates: true,
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+}

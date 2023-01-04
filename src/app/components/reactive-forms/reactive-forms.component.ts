@@ -1,18 +1,42 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+import { ApiService } from 'src/app/services/api.service';
+import { ToastService } from 'src/app/services/toaster.service';
+
+declare var $: any; 
 
 @Component({
   selector: 'app-reactive-forms',
   templateUrl: './reactive-forms.component.html',
   styleUrls: ['./reactive-forms.component.css']
 })
-export class ReactiveFormsComponent implements OnInit {
 
-  constructor(private fb:FormBuilder) { }
+export class ReactiveFormsComponent implements OnInit {
+ 
+  constructor(private fb:FormBuilder, private service: ApiService, private toast: ToastService) { }
 
   ngOnInit(): void {
+   this.service.getReq().subscribe(x=>console.log(x));
+   $('#11').select2({
+    minimumResultsForSearch: 20 // at least 20 results must be displayed
+         });
+console.log($('#11'))
   }
+
+
+  showToasterSuccess(){
+    this.toast.showSuccess("Data shown successfully !!");
+}
+  showToasterError(){
+    this.toast.showError("Some Error occured.");
+}
+  showToasterInfo(){
+    this.toast.showInfo("Just info.");
+}
+
+submit(){
+  this.portalForm;
+}
   t:string= 'danger';
   skills:string[]=[];
 

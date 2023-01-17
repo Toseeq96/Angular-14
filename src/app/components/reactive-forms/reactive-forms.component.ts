@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
 import { ToastService } from 'src/app/services/toaster.service';
 
@@ -15,38 +15,28 @@ export class ReactiveFormsComponent implements OnInit {
  
   constructor(private fb:FormBuilder, private service: ApiService, private toast: ToastService) { }
 
-  ngOnInit(): void {
+ ngOnInit(): void {
    this.service.getReq().subscribe(x=>console.log(x));
-   $('#11').select2({
-    minimumResultsForSearch: 20 // at least 20 results must be displayed
-         });
-console.log($('#11'))
   }
 
-
-  showToasterSuccess(){
+ showToasterSuccess(){
     this.toast.showSuccess("Data shown successfully !!");
 }
-  showToasterError(){
+
+ showToasterError(){
     this.toast.showError("Some Error occured.");
 }
-  showToasterInfo(){
+
+ showToasterInfo(){
     this.toast.showInfo("Just info.");
 }
 
-submit(){
+ submit(){
   this.portalForm;
 }
   t:string= 'danger';
   skills:string[]=[];
 
-  //----------------------------------------------------------------------------form using form group
-  // portalForm = new FormGroup({
-  //   firstName:new FormControl(''), //text inside '' will be default value.
-  //   lastName:new FormControl('')
-  // })
-  
-//------------------------------------------------------------------------------form using form builder
 portalForm = this.fb.group({
   firstName:['',[Validators.required, Validators.minLength(3)]],
   lastName:[''],
@@ -58,9 +48,7 @@ portalForm = this.fb.group({
   skills:this.fb.array([])
 })
 
- 
   DisplayForm(){
-
     console.log(this.portalForm);
     if(this.portalForm.valid)
     console.log(this.portalForm.value);
@@ -69,8 +57,4 @@ portalForm = this.fb.group({
 get skillsForm(){
   return this.portalForm.get('skills');
 }
-
-//   test(){
-// this.skillsForm.push('s');
-//   }
 }

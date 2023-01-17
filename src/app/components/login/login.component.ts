@@ -22,12 +22,15 @@ export class LoginComponent implements OnInit {
   });
 
   login(){
-    if(this.loginForm.status == "INVALID"){
+    if(this.loginForm.invalid){
       this.toast.error("Enter correct email and password");
       return;
     }
     else{
       console.log(this.loginForm.value);
+            //different ways to get control properties
+         // this.loginForm.controls['userName'].value;
+         // this.loginForm.controls.userName.value
       localStorage.setItem('userName',this.loginForm.value.userName??'');
       localStorage.setItem('password',this.loginForm.value.password??'');
       this.route.navigate(['form']);

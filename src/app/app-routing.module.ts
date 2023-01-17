@@ -7,11 +7,29 @@ import { LoginGuard } from './guards/login.guard';
 
 
 const routes: Routes = [
-                        {path:'', component: LoginComponent},
-                        {path:'about', loadChildren: () => import('./modules/about/about.module').then(m => m.AboutModule) },
-                        {path:'form', component:ReactiveFormsComponent, canActivate:[LoginGuard]}, 
-                        {path:'images', component:ImagesComponent}
-                      ];
+{
+  path:'', 
+  component: LoginComponent
+},
+{
+  path:'about', 
+  loadChildren: () => import('./modules/about/about.module').then(m => m.AboutModule) 
+},                      
+{
+  path:'form', 
+  canActivate:[LoginGuard],
+  component:ReactiveFormsComponent  
+},                         
+{
+  path:'images', 
+  component:ImagesComponent
+},
+{
+  path:'**',
+  component:LoginComponent
+}
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

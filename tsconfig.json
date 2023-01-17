@@ -21,7 +21,8 @@
     "lib": [
       "es2020",
       "dom"
-    ]
+    ],
+    "paths": {"isLoggedIn":["./src/app/services/is-logged-in.service.ts"]}
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

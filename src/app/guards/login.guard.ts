@@ -14,7 +14,7 @@ export class LoginGuard implements CanActivate {
         this.route.navigate(['']);  //for redirecting to login; blank page appears otherwise
         this.toast.error('Login Failed');
       }
-    return this.isLoggedService.CheckLogging();
+    return true;
   }
   
 }

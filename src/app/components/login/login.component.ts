@@ -9,16 +9,17 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
   constructor(private fb:FormBuilder, private toast: ToastrService, private route: Router) { }
 
   ngOnInit(): void {
     localStorage.clear();
+    sessionStorage.clear();
   }
 
   loginForm=this.fb.group({
     userName:['', [Validators.required, Validators.email]],
-    password:['', Validators.required]
+    password:['', Validators.required],
+    rememberMe:[false]
   });
 
   login(){
@@ -27,13 +28,12 @@ export class LoginComponent implements OnInit {
       return;
     }
     else{
-      console.log(this.loginForm.value);
             //different ways to get control properties
          // this.loginForm.controls['userName'].value;
          // this.loginForm.controls.userName.value
-      localStorage.setItem('userName',this.loginForm.value.userName??'');
-      localStorage.setItem('password',this.loginForm.value.password??'');
-      this.route.navigate(['form']);
+      this.loginForm.value.rememberMe==true? localStorage.setItem('userName',this.loginForm.value.userName??'') : sessionStorage.setItem('userName', this.loginForm.value.userName??'');
+      this.loginForm.value.rememberMe==true?localStorage.setItem('password',this.loginForm.value.password??'') : sessionStorage.setItem('password', this.loginForm.value.password??'');
+      this.route.navigate(['home']);
     }
     
   }

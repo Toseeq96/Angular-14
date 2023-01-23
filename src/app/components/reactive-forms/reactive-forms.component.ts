@@ -12,11 +12,13 @@ declare var $: any;
 })
 
 export class ReactiveFormsComponent implements OnInit {
- 
-  constructor(private fb:FormBuilder, private service: ApiService, private toast: ToastService) { }
+
+  constructor(private fb:FormBuilder, private service: ApiService, private toast: ToastService) {}
+
+   
 
  ngOnInit(): void {
-   this.service.getReq().subscribe(x=>console.log(x));
+   
   }
 
  showToasterSuccess(){
@@ -56,5 +58,9 @@ portalForm = this.fb.group({
 
 get skillsForm(){
   return this.portalForm.get('skills');
+}
+
+GetData(){
+  this.service.getReq().subscribe(x=>console.log(x));
 }
 }

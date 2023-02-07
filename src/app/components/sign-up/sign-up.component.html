@@ -1,0 +1,78 @@
+<section class="vh-100" style="background-color: #eee;">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-lg-12 col-xl-11">
+          <div class="card text-black" style="border-radius: 25px;">
+            <div class="card-body p-md-5">
+              <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+  
+                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+  
+                  <form class="mx-1 mx-md-4" [formGroup]="SignUpForm" (ngSubmit)="SubmitSignUp()">
+  
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <fa-icon class="fas fa-lg me-3 fa-fw" [icon]="faUser"></fa-icon>
+                      <div class="form-outline flex-fill mb-0" >
+                        <input [ngStyle]="{'border-color':this.SignUpForm.controls.name.status=='INVALID' && this.SignUpForm.controls.name.touched?'red':''}" type="text" id="form3Example1c" formControlName="name" class="form-control" placeholder="Your Name"/>
+                        
+                      </div>
+                    </div>
+  
+                    <div class="d-flex flex-row align-items-center mb-4">
+
+                      <fa-icon class="fas fa-lg me-3 fa-fw" [icon]="faEnvelope"></fa-icon>
+                      <div class="form-outline flex-fill mb-0">
+                        <input type="email" [ngClass]="{'borderRed':this.SignUpForm.controls.email.status=='INVALID' && this.SignUpForm.controls.email.touched}" id="form3Example3c" formControlName="email" class="form-control" placeholder="Your Email" />
+                        
+                      </div>
+                    </div>
+  
+                    <div class="d-flex flex-row align-items-center mb-4 flex-wrap">
+                      <fa-icon class="fas fa-lg me-3 fa-fw" [icon]="faLock"></fa-icon>
+                      <div class="form-outline flex-fill mb-0">
+                        <input type="password" [ngClass]="{'borderRed':this.SignUpForm.controls.password.status=='INVALID' && this.SignUpForm.controls.password.touched}"  id="form3Example4c" formControlName="password" class="form-control" placeholder="Password"/>                        
+                      </div>
+                      <span *ngIf="this.SignUpForm.controls.password.status=='INVALID' && this.SignUpForm.controls.password.touched" class="errorText">Password must contain at least 1 upper case, numeric and special character with minimum length 8.</span>                      
+                    </div>
+                    
+  
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <fa-icon class="fas fa-lg me-3 fa-fw" [icon]="faKey"></fa-icon>
+                      <div class="form-outline flex-fill mb-0">
+                        <input type="password" [ngClass]="{'borderRed':(this.SignUpForm.controls.confirm.status=='INVALID' && this.SignUpForm.controls.confirm.touched) || (this.SignUpForm.controls.confirm.value!=this.SignUpForm.controls.password.value)}" id="form3Example4cd" formControlName="confirm" class="form-control" placeholder="Repeat your password" />
+                        
+                      </div>
+                    </div>
+  
+                    <div class="form-check d-flex justify-content-center mb-5 flex-wrap">
+                      <input class="form-check-input me-2" [ngClass]="{'borderRed':!this.SignUpForm.controls.agree.value && this.SignUpForm.controls.agree.touched}" type="checkbox" value="" id="form2Example3c" formControlName="agree" />
+                      <label class="form-check-label" for="form2Example3">
+                        I agree all statements in <a href="">Terms of service</a>
+                      </label>                      
+                    </div>
+
+  
+                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4 flex-column align-items-center">
+                      <button type="submit" class="btn btn-primary btn-lg loginBtn">Register</button>
+                      <label class="form-check-label" for="form2Example3">
+                        Already registerd? <a routerLink="/login">Login</a>
+                      </label>
+                    </div>
+  
+                  </form>
+  
+                </div>
+                <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+  
+                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                    class="img-fluid" alt="Sample image">
+  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

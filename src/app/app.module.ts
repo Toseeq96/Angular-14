@@ -13,11 +13,12 @@ import {MatBadgeModule} from '@angular/material/badge'
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {HttpClientModule} from '@angular/common/http';
 import { ImagesComponent } from './components/images/images.component'
-import { NgOptimizedImage } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { HomeComponent } from './components/home/home.component';
-
-
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,9 @@ import { HomeComponent } from './components/home/home.component';
     ReactiveFormsComponent,
     LoginComponent,
     ImagesComponent,
-    HomeComponent
+    HomeComponent,
+    SignUpComponent,
+    NavBarComponent
     
   ],
   imports: [
@@ -39,7 +42,9 @@ import { HomeComponent } from './components/home/home.component';
     MatBadgeModule,
     MatDatepickerModule,
     HttpClientModule,
+    CommonModule,
     NgOptimizedImage,
+    FontAwesomeModule,
     ToastrModule.forRoot({
       timeOut: 5000,
       //positionClass: 'toast-bottom-right',

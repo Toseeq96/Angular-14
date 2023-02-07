@@ -20,8 +20,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  SignOut(){
-    this.route.navigate(['']);
-  }
+ 
 
 }

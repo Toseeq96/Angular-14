@@ -25,3 +25,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     border-bottom-right-radius: .3rem;
     }
     }
+
+    .loginBtn{
+        min-width: 17vw;
+        align-self: center;
+        margin-left: 33px;
+        margin-bottom: 18px;
+    }

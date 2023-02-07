@@ -1,0 +1,14 @@
+.height-80{
+    min-height: 90vh;
+}
+
+
+.marLeft20{
+    margin-left: 20px;
+}
+
+.socialIcons{
+    margin-left: 100px;
+    margin-top: -7px;
+    position: absolute;
+}

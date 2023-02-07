@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +11,9 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class LoginComponent implements OnInit {
   constructor(private fb:FormBuilder, private toast: ToastrService, private route: Router) { }
+
+  faEnvelope=faEnvelope;
+  faLock=faLock;
 
   ngOnInit(): void {
     localStorage.clear();
